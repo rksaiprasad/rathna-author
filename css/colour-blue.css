@@ -1,0 +1,24 @@
+/*******************************************************************************************************************
+*  LINKS                                                                                                           
+*******************************************************************************************************************/
+a, a:link, a:focus{color:#295fa2;}
+
+/*******************************************************************************************************************
+*  HEADER                                                                                                          
+*******************************************************************************************************************/
+/*#intro{background:#214c90 url("img/blue/intro-repeat.png") repeat-x; border-top:1px solid #4aabda;}
+#intro .inner{background:url("img/blue/intro-middle.png") no-repeat 50% 0;}
+#intro .button{box-shadow:0 2px 2px #24528d;}*/
+
+
+
+
+#intro .inner{background: rgba(0, 0, 0, 0.2);}
+#intro .inner{font-family:"Raleway";}
+
+#intro {background:url("img/blue/intro-middle.png") no-repeat; background-position:center; background-size:cover; }
+
+
+@media (max-width:800px){
+  #intro {font-size:8pt;}
+}
