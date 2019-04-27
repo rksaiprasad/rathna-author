@@ -19,10 +19,19 @@ $(document).ready(function () {
         addy = $("#email").val();
 
         var request = $.ajax({
-          url: "http://author-backend.herokuapp.com/author_methods/subscribe",
+          url: "https://api.airtable.com/v0/appAxSg65jNgWhQln/Signups",
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader ("Authorization", "Bearer keyqXy9wVseyd2L6S");
+          },
           method: "POST",
-          data: { author_method : addy },
-          dataType: "json"
+          data: {
+            "fields": {
+              'EmailAddress': addy,
+              'Responded':false
+            },
+            "typecast": true
+            },
+          contentType: "application/json"
         });
         
         request.done(function( msg ) {            
@@ -32,7 +41,7 @@ $(document).ready(function () {
          
         request.fail(function( jqXHR, textStatus ) {
           //alert( "Request failed: " + textStatus );
-          $("#connectResponse").text("Thanks so much, " + addy + "! I got your email and will be in touch."); 
+          $("#connectResponse").text("Shucks!  Looks like there was an error. Can you please email me instead?"); 
           $("#email").val('');
         });
 
