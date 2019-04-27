@@ -23,23 +23,23 @@ $(document).ready(function () {
           beforeSend: function (xhr) {
             xhr.setRequestHeader ("Authorization", "Bearer keyqXy9wVseyd2L6S");
           },
-          method: "POST",
-          data: {
-            "fields": {
-              'EmailAddress': addy,
-              'Responded':false
-            },
-            "typecast": true
-            },
-          contentType: "application/json"
+          type: "POST",
+          processData: false,
+          data: '{"fields": {"EmailAddress": "'+addy+'"}}',
+          contentType: "application/json",
+          dataType: "json"
         });
-        
         request.done(function( msg ) {            
             $("#connectResponse").text("Thanks, " + addy + "! I got your email and will be in touch!"); 
             $("#email").val('');
+            console.log(request);
+            console.log(msg);
         });
          
         request.fail(function( jqXHR, textStatus ) {
+          console.log(request);
+          console.log(textStatus);
+          console.log(jqXHR);
           //alert( "Request failed: " + textStatus );
           $("#connectResponse").text("Shucks!  Looks like there was an error. Can you please email me instead?"); 
           $("#email").val('');
